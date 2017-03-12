@@ -14,7 +14,7 @@ var mainState = {
 
     create: function() {
         // Change the background color of the game to blue
-        game.stage.backgroundColor = '#FF0088';
+        game.stage.backgroundColor = '#71c5cf';
 
         // Set the physics system
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -69,18 +69,18 @@ var mainState = {
 
         // Add the 6 pipes 
         // With one big hole at position 'hole' and 'hole + 1'
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i <= 10; i++)
             if (i != hole && i != hole + 1){
                 if(i%8 == 0)
-                    this.addOnePipe(400, i * 60 + 10, 'paco');
+                    this.addOnePipe(600, i * 60 + 10, 'paco');
                 else if(i%5 == 0)
-                    this.addOnePipe(400, i * 60 + 10, 'neves');
+                    this.addOnePipe(600, i * 60 + 10, 'neves');
                 else if(i%4 == 0)
-                    this.addOnePipe(400, i * 60 + 10, 'limi');
+                    this.addOnePipe(600, i * 60 + 10, 'limi');
                 else if(i%3 == 0)
-                    this.addOnePipe(400, i * 60 + 10, 'barca');
+                    this.addOnePipe(600, i * 60 + 10, 'barca');
                 else
-                    this.addOnePipe(400, i * 60 + 10, 'cerveira');
+                    this.addOnePipe(600, i * 60 + 10, 'cerveira');
             
                 
             }
@@ -90,7 +90,7 @@ var mainState = {
     update: function() {
         // If the bird is out of the screen (too high or too low)
         // Call the 'restartGame' function
-        if (this.bird.y < 0 || this.bird.y > 490)
+        if (this.bird.y < 0 || this.bird.y > 635)
             this.restartGame();
         game.physics.arcade.overlap(
             this.bird, this.pipes, this.hitPipe, null, this);
@@ -139,7 +139,7 @@ var mainState = {
 };
 
 // Initialize Phaser, and create a 400px by 490px game
-var game = new Phaser.Game(400, 490);
+var game = new Phaser.Game(600, 635);
 
 // Add the 'mainState' and call it 'main'
 game.state.add('main', mainState);
